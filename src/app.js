@@ -25,9 +25,9 @@ app.use('/api/cart', cartRouter);
 app.use('/', viewsRouter);
 
 mongoose.connect(
-	'mongodb+srv://jdecima:123@coderclaster.fttdpng.mongodb.net/?retryWrites=true&w=majority'
+	'mongodb+srv://MaxRabow:Maximo84@cole.xshtick.mongodb.net/?retryWrites=true&w=majority'
 );
 
 app.listen(8080, () => {
-	console.log('escucho el 8080');
+	console.log('8080');
 });
