@@ -17,7 +17,7 @@ class ProductService {
 		return this.model.deleteOne({ _id: productId });
 	}
 
-	async getProductByID(studentId) {
+	async getProductByID(productId) {
 		return await this.model.findOne({ _id: productId });
 	}
 }

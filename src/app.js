@@ -1,6 +1,7 @@
 import express from 'express';
 import handlebars from 'express-handlebars';
 import mongoose from 'mongoose';
+import passport from 'passport';
 
 import productRouter from './routes/product.routes.js';
 import cartRouter from './routes/cart.routes.js';
