@@ -1,9 +1,10 @@
 import { Router } from 'express';
 import { productService } from '../src/product/product.service.js';
+import { userService } from '../src/users/user.service.js'
 
 const viewsRouter = Router();
 
-viewsRouter.use('/', async (req, res) => {
+viewsRouter.get('/', async (req, res) => {
 	try {
 		const product = await productService.getAllProduct();
 		res.render('product', { product });
@@ -11,5 +12,9 @@ viewsRouter.use('/', async (req, res) => {
 		res.render('error');
 	}
 });
+
+viewsRouter.get('/users', (req, res)=>{
+	res.render('users', {tittle: 'USUARIO NUEVO'})
+})
 
 export default viewsRouter;
