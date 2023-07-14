@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { cartService } from '../service/cart.service.js';
+import { cartService } from './cart.service.js';
 
 const cartRouter = Router();
 

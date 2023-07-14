@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { productSchema } from './product.model.js';
+import { productSchema } from '../model/product.model.js';
 
 const cartScheme = new mongoose.Schema({
 	name: String,

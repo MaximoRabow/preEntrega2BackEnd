@@ -3,9 +3,9 @@ import handlebars from 'express-handlebars';
 import mongoose from 'mongoose';
 import passport from 'passport';
 
-import productRouter from './routes/product.routes.js';
-import cartRouter from './routes/cart.routes.js';
-import viewsRouter from './routes/views.routes.js';
+import productRouter from './product/product.routes.js';
+import cartRouter from './cart/cart.routes.js';
+import viewsRouter from '../views/views.routes.js';
 
 const app = express();
 

@@ -1,5 +1,5 @@
 import { cartModel } from '../model/cart.model.js';
-import { productService } from './product.service.js';
+import { productService } from '../product/product.service.js';
 
 class CartService {
 	constructor() {
