@@ -2,6 +2,7 @@ import express from 'express';
 import handlebars from 'express-handlebars';
 import mongoose from 'mongoose';
 
+import enviroment from './config/enviroment.js';
 
 import productRouter from './product/product.routes.js';
 import cartRouter from './cart/cart.routes.js';
@@ -31,6 +32,6 @@ mongoose.connect(
 	'mongodb+srv://MaxRabow:Maximo84@cole.xshtick.mongodb.net/?retryWrites=true&w=majority'
 );
 
-app.listen(8080, () => {
-	console.log('8080');
+app.listen(enviroment.PORT, () => {
+	console.log(`puerto ${enviroment.PORT}`);
 });
