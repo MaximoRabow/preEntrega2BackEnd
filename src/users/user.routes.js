@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import { userService } from '../users/user.service.js';
+import { userDao } from '../users/user.dao.js';
 import { hashPassword, comparePassword } from '../../utils/hash.utils.js';
 
 const userRouter = Router();
 
 userRouter.get('/', async (req, res) => {
 	try {
-		const user = await userService.getAllUser();
+		const user = await userDao.getAllUser();
 		res.send(user);
 	} catch (err) {
 		res.status(500).send({ err });
@@ -16,7 +16,7 @@ userRouter.get('/', async (req, res) => {
 userRouter.post('/', async (req, res) => {
 	const users = { ...req.body, password: hashPassword(req.body.password)};
 	try {
-		const userAdd = await userService.addUser(users);
+		const userAdd = await userDao.addUser(users);
 		delete userAdd.password;
 		res.send(201).json(userAdd);
 	} catch (error) {
@@ -27,7 +27,7 @@ userRouter.post('/', async (req, res) => {
 userRouter.post('/auth', async (req, res)=>{
 	const { email, password } = req.body;
 	try {
-		const user = await userService.getByEmail(email)
+		const user = await userDao.getByEmail(email)
 		if (!user) throw new Error ('invalid data');
 		console.log(comparePassword(user, password));
 		if (!comparePassword(user, password)) throw new Error ('invalid data');
@@ -41,8 +41,8 @@ userRouter.post('/auth', async (req, res)=>{
 userRouter.delete('/:uid', async (req, res) => {
 	const uid = req.params.uid;
 	try {
-		await userService.removeUser(uid);
-		res.sendStatus(204);
+		await userDao.removeUser(uid);
+		res.send(204);
 	} catch (err) {
 		res.status(500).send({ err });
 	}
