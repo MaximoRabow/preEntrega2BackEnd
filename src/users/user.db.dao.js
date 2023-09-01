@@ -13,7 +13,7 @@ class Userdao {
 		}	
 	}
 
-	async getUserByID(userId) {
+	async getUserById(userId) {
 		try {
 			return await this.model.findOne({ _id: userId });
 		} catch(error) {
